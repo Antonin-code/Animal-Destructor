@@ -1,7 +1,10 @@
 public class test {
     public static void main(String[] args) {
-
-        Generation.Affichage(Generation.CreationTerrain());
-        DestructionCase.Destruction(Generation.CreationTerrain());
+        String[][] Terrain = Generation.CreationTerrain();
+        Generation.Affichage(Terrain);
+        for (int i = 0; i < 3; i++) {
+            DestructionCase.Destruction(Terrain);
+            Generation.Affichage(Terrain);
+        }
     }
 }

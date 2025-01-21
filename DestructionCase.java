@@ -1,8 +1,9 @@
+import java.util.Objects;
 import java.util.Scanner;
 
 public class DestructionCase {
     //Fonction pour demander des coordonnées à l'utilisateur et détruire la case correspondante
-    public static void Destruction(String[][] grille) {
+    public static String[][] Destruction(String[][] grille) {
         //Variables pour texte en couleurs
         final String ROUGE = "\u001B[31m";
         final String BLEU = "\u001B[36m";
@@ -33,7 +34,7 @@ public class DestructionCase {
             catch(Exception _) {
             }
             //Vérifier si les coordonnées sont dans le terrain
-            if (ColonneCoord > 11 || ColonneCoord < 1 || LigneCoord > 10 || LigneCoord < 1) {
+            if ((ColonneCoord > 11 || ColonneCoord < 1 || LigneCoord > 10 || LigneCoord < 1) || !Objects.equals(grille[LigneCoord][ColonneCoord], "🟩")) {
                 System.out.println("Coordonnées Invalides");
             }
             else {
@@ -41,6 +42,6 @@ public class DestructionCase {
             }
         }
         grille[LigneCoord][ColonneCoord] = "🔥";
-        Generation.Affichage(grille);
+        return grille;
     }
 }
