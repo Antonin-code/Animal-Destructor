@@ -35,7 +35,7 @@ public class DestructionCase {
                 //Récupérer l'instance de la lettre ligne en ASCII et soustraire 64 pour obtenir l'index correspondant
                 LigneCoord = (short)(Ligne.toUpperCase().charAt(0) - 64);
             }
-            catch(Exception _) {
+            catch(Exception e) {
             }
             //Vérifier si les coordonnées sont dans le terrain
             if ((ColonneCoord > 11 || ColonneCoord < 1 || LigneCoord > 10 || LigneCoord < 1) || !Objects.equals(grille[LigneCoord][ColonneCoord], "🟩")) {
