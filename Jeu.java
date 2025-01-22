@@ -17,9 +17,6 @@ public class Jeu {
         String[] Joueurs = {"🐰","🐷","🐔","🦊"};
         short[][] PositionJoueurs = {{5,5},{6,5},{6,7},{5,7}};
 
-        //Réduction de la liste d'icônes selon le nombre des joueurs
-        Joueurs = Arrays.copyOfRange(Joueurs, 0, nbjoueurs);
-
         //Changement de la position des joueurs selon leur nombre
         if (nbjoueurs==2){
             PositionJoueurs[0]= new short[]{5, 6};
@@ -35,12 +32,40 @@ public class Jeu {
         }
 
         //Boucle de gameplay
-        for (int i = 0; i < 5; i++) {
-            String JoueurActuel = Joueurs[i%nbjoueurs];
+        boolean AGagne = false;
+        int NbTour = 0;
+        while(!AGagne){
+            //Prochain Joueur
+            String JoueurActuel = Joueurs[NbTour%nbjoueurs];
             Object PseudoActuel = listeJoueurs.get(i % nbjoueurs);
             System.out.println(JoueurActuel);
-            Deplacement.DeplacementJoueur(JoueurActuel,i+1,PositionJoueurs[i%nbjoueurs],Terrain,PseudoActuel);
+
+            //Condition de défaite
+            if (VictoireDefaite.Defaite(PositionJoueurs[NbTour%nbjoueurs],Terrain)){
+
+                //Si un joueur meurt, retirer son icône et ses coordonnées des listes correspondantes
+                Joueurs = RetirerJoueur(Joueurs,(short)(NbTour%nbjoueurs));
+                PositionJoueurs = RetirerCoords(PositionJoueurs,(short)(NbTour%nbjoueurs));
+
+                //Mise à jour du joueur actuel et réduction du nombre de joueurs total
+                JoueurActuel = Joueurs[NbTour%nbjoueurs];
+                nbjoueurs--;
+
+                //S'il ne reste qu'un seul joueur, renvoyer la victoire
+                if (nbjoueurs==1)
+                {
+                    Generation.Affichage(Terrain);
+                    System.out.println("gg "+Joueurs[0]+" tu es le plus fort");
+                    AGagne = true;
+                    continue;
+                }
+            }
+
+            //Déplacement et attaque du joueur
+            Deplacement.DeplacementJoueur(JoueurActuel,NbTour+1,PositionJoueurs[NbTour%nbjoueurs],Terrain);
             DestructionCase.Destruction(Terrain);
+
+
         }
     }
 }
