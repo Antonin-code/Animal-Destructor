@@ -21,15 +21,15 @@ public class Menu {
         }
         // Choix pour jouer
         else if (choix.equals("P") || choix.equals("p")) {
-            Jouer(choix);
+            Jouer();
         }
         // Choix pour Regles
         else if (choix.equals("R") || choix.equals("r")) {
-            Regles(choix);
+            Regles();
         }
         // Choix pour Quitter
         else if (choix.equals("Q") || choix.equals("q")) {
-            Quitter(choix);
+            Quitter();
         }
         // Rappele la fonction si le choix est different de P/R/Q
         else{
@@ -40,17 +40,18 @@ public class Menu {
     }
 
     // Fonction pour lancer le jeu
-    public static void Jouer(String choix){
+    public static void Jouer(){
         System.out.println("Jouer");
     }
 
     // Fonction pour lire les regles
-    public static void Regles(String choix){
-        System.out.println("Regles");
+    public static void Regles(){
+        System.out.println("Regles : ");
+        System.out.println(" ");
     }
 
     // Fonction pour quitter le jeu
-    public static void Quitter(String choix){
+    public static void Quitter(){
         System.exit(0);
     }
 
