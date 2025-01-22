@@ -13,10 +13,8 @@ public class Main {
         List<String> listeJoueurs = Menu.Pseudo();
         System.out.println(listeJoueurs);
 
-       // Jeu.jeu();
+         // Jeu.jeu();
+        // while (true) {
 
-//        while (true) {
-//
-//        }
     }
 }
