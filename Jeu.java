@@ -33,10 +33,14 @@ public class Jeu {
 
         //Boucle de gameplay
         for (int i = 0; i < 5; i++) {
+            //Prochain Joueur
             String JoueurActuel = Joueurs[i%nbjoueurs];
-            System.out.println(JoueurActuel);
+
+            //Déplacement et attaque du joueur
             Deplacement.DeplacementJoueur(JoueurActuel,i+1,PositionJoueurs[i%nbjoueurs],Terrain);
             DestructionCase.Destruction(Terrain);
+
+
         }
     }
 }
