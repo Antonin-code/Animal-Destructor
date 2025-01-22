@@ -1,4 +1,6 @@
 import java.util.Arrays;
+import java.util.List;
+import java.util.Objects;
 
 public class Jeu {
     /*Fonction pour lancer le jeu
@@ -6,7 +8,7 @@ public class Jeu {
     while jusqu'à ce qu'un joueur gagne
     Cette fonction change les coordonnées d'apparition des joueurs selon le nombre de joueurs
      */
-    public static void LancerJeu(short nbjoueurs) {
+    public static void LancerJeu(short nbjoueurs, List listeJoueurs) {
         //Création du terrain
         String[][] Terrain = Generation.CreationTerrain();
 
@@ -34,8 +36,9 @@ public class Jeu {
         //Boucle de gameplay
         for (int i = 0; i < 5; i++) {
             String JoueurActuel = Joueurs[i%nbjoueurs];
+            Object PseudoActuel = listeJoueurs.get(i % nbjoueurs);
             System.out.println(JoueurActuel);
-            Deplacement.DeplacementJoueur(JoueurActuel,i+1,PositionJoueurs[i%nbjoueurs],Terrain);
+            Deplacement.DeplacementJoueur(JoueurActuel,i+1,PositionJoueurs[i%nbjoueurs],Terrain,PseudoActuel);
             DestructionCase.Destruction(Terrain);
         }
     }

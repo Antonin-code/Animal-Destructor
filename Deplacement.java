@@ -1,8 +1,9 @@
+import java.util.List;
 import java.util.Scanner;
 
 public class Deplacement {
 
-    public static void DeplacementJoueur(String JoueurIcone, int tour, short[] coordonnees,String[][] grille) {
+    public static void DeplacementJoueur(String JoueurIcone, int tour, short[] coordonnees,String[][] grille, Object PseudoActuel) {
 
         Scanner scanner = new Scanner(System.in);
         String commande;
@@ -16,7 +17,7 @@ public class Deplacement {
             Generation.Affichage(grille);
 
             // Indique quel joueur doit jouer
-            System.out.println("Tour du joueur " + tour + " (" + JoueurIcone + ")");
+            System.out.println("Tour du joueur " + PseudoActuel + " (" + JoueurIcone + ")");
             System.out.print("Entrez une commande : ");
             commande = scanner.nextLine().toUpperCase();
 
