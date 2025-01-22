@@ -1,7 +1,6 @@
 import java.util.Arrays;
 import java.util.List;
 import java.util.Objects;
-import java.util.Scanner;
 
 public class Jeu {
     /*Fonction pour lancer le jeu
@@ -37,7 +36,7 @@ public class Jeu {
         while(!AGagne){
             //Prochain Joueur
             String JoueurActuel = Joueurs[NbTour%nbjoueurs];
-            Object PseudoActuel = listeJoueurs.get(i % nbjoueurs);
+            Object PseudoActuel = listeJoueurs.get(NbTour % nbjoueurs);
             System.out.println(JoueurActuel);
 
             //Condition de défaite
@@ -62,10 +61,43 @@ public class Jeu {
             }
 
             //Déplacement et attaque du joueur
-            Deplacement.DeplacementJoueur(JoueurActuel,NbTour+1,PositionJoueurs[NbTour%nbjoueurs],Terrain);
+            Deplacement.DeplacementJoueur(JoueurActuel,NbTour+1,PositionJoueurs[NbTour%nbjoueurs],Terrain,PseudoActuel);
             DestructionCase.Destruction(Terrain);
-
-
+            NbTour++;
         }
+    }
+
+    /*
+    Fonction appelée quand un joueur meurt pour le retirer de la liste des joueurs
+    Cette fonction récupère l'index d'un joueur et la liste des joueurs et renvoie une nouvelle liste sans
+    ce joueur
+     */
+    public static String[] RetirerJoueur(String[] ListeJoueurs, short indexJoueur) {
+        String[] NouvelleListe = new String[ListeJoueurs.length -1] ;
+        short NouvelIndex = 0;
+        for (short i = 0; i < ListeJoueurs.length; i++) {
+            if (i!=indexJoueur){
+                NouvelleListe[NouvelIndex] = ListeJoueurs[i];
+                NouvelIndex++;
+            }
+        }
+        return NouvelleListe;
+    }
+
+    /*
+    Fonction appelée quand un joueur meurt pour retirer ses coordonnées de la liste des coordonnées
+    Cette fonction récupère l'index d'un joueur et la liste des coordonnées et renvoie une nouvelle liste sans
+    les coordonnées de ce joueur
+     */
+    public static short[][] RetirerCoords(short[][] ListeCoords, short indexCoords) {
+        short[][] NouvelleListe = new short[ListeCoords.length -1][] ;
+        short NouvelIndex = 0;
+        for (short i = 0; i < ListeCoords.length; i++) {
+            if (i!=indexCoords){
+                NouvelleListe[NouvelIndex] = ListeCoords[i];
+                NouvelIndex++;
+            }
+        }
+        return NouvelleListe;
     }
 }

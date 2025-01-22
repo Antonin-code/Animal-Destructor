@@ -48,9 +48,7 @@ public class DestructionCase {
                     System.out.println("Coordonnées Invalides");
                 }
             else {
-                estvalide = true;{
-                    Choix.regles_Jeu(grille);
-                }
+                estvalide = true;
             }
         }
         }
