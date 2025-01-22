@@ -1,3 +1,4 @@
+import java.io.*;
 import java.util.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -12,6 +13,7 @@ public class Menu {
         System.out.println("Voici les options possibles : ");
         System.out.println("--- P pour lancer une partie --- ");
         System.out.println("--- R pour lire les règles du jeu ---");
+        System.out.println("--- S pour voir le Tableau des scores ---");
         System.out.println("--- Q pour quitter le jeu (mauvaise idée) ---");
         Scanner scan = new Scanner(System.in);
         String choix = scan.nextLine();
@@ -28,6 +30,10 @@ public class Menu {
         }
         // Choix pour Regles
         else if (choix.equals("R") || choix.equals("r")) {
+            Regles();
+        }
+        // Choix pour Score
+        else if (choix.equals("S") || choix.equals("s")) {
             Regles();
         }
         // Choix pour Quitter
@@ -80,9 +86,12 @@ public class Menu {
         System.out.println("Bah reviens pas ");
         System.exit(0);
 
-
     }
 
+    // Fonction pour voir les scores
+    public static void Score() {
+
+    }
 
     public static int nb_joueurs() {
         System.out.println("Combien ya t'ils de joueurs (entre 2 et 4) : ");

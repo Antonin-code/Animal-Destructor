@@ -12,6 +12,7 @@ public class Main {
         Menu.Debut();
         List<String> listeJoueurs = Menu.Pseudo();
         System.out.println(listeJoueurs);
+        Sauvegarde sauvegarde = new Sauvegarde();
 
          // Jeu.jeu();
         // while (true) {
