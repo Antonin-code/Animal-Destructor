@@ -9,6 +9,7 @@ public class Deplacement {
         String commande;
 
         System.out.println("Bienvenue dans le jeu multi-joueurs !");
+        System.out.println("Vous pouvez a tout moment regarder les regles avec r ou quitter le jeu avec l");
         System.out.println("Utilisez Z (haut), S (bas), Q (gauche), D (droite) pour vous déplacer.");
         System.out.println("Joueurs : 🐷, 🐔, 🐰, 🦊.");
 
@@ -31,6 +32,9 @@ public class Deplacement {
                 case "S": nouvelleX++; break; // Bas
                 case "Q": nouvelleY--; break; // Gauche
                 case "D": nouvelleY++; break; // Droite
+                case "R": Choix.regles_Jeu(grille);break;
+                case "M": Menu.Debut(); break;
+                case "L": Menu.Quitter(); break;
                 case "EXIT":
                     System.out.println("Merci d'avoir joué !");
                     scanner.close();

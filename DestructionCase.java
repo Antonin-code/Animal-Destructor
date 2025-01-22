@@ -25,6 +25,10 @@ public class DestructionCase {
             Scanner sc = new Scanner(System.in);
             String Coordonnees = sc.nextLine();
 
+            if (Objects.equals(Coordonnees, "R") || Objects.equals(Coordonnees, "r")) {
+                Choix.regles_Jeu(grille);
+            }
+
             //Séparer le numéro de la colonne et la lettre de la ligne
             String Colonne = Coordonnees.substring(0, Coordonnees.length()-1);
             String Ligne = Coordonnees.substring(Coordonnees.length()-1);
@@ -37,13 +41,18 @@ public class DestructionCase {
             }
             catch(Exception e) {
             }
-            //Vérifier si les coordonnées sont dans le terrain
-            if ((ColonneCoord > 11 || ColonneCoord < 1 || LigneCoord > 10 || LigneCoord < 1) || !Objects.equals(grille[LigneCoord][ColonneCoord], "🟩")) {
-                System.out.println("Coordonnées Invalides");
-            }
+
+            if (!Objects.equals(Coordonnees, "R") && !Objects.equals(Coordonnees, "r")){
+                //Vérifier si les coordonnées sont dans le terrain
+                if ((ColonneCoord > 11 || ColonneCoord < 1 || LigneCoord > 10 || LigneCoord < 1) || !Objects.equals(grille[LigneCoord][ColonneCoord] , "🟩")) {
+                    System.out.println("Coordonnées Invalides");
+                }
             else {
-                estvalide = true;
+                estvalide = true;{
+                    Choix.regles_Jeu(grille);
+                }
             }
+        }
         }
         grille[LigneCoord][ColonneCoord] = "🔥";
     }

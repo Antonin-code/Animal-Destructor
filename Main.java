@@ -13,8 +13,7 @@ public class Main {
         List<String> listeJoueurs = Menu.Pseudo();
         short tailleListe = (short)listeJoueurs.size();
         System.out.println(listeJoueurs);
-
-         Jeu.LancerJeu(tailleListe, listeJoueurs);
+        Jeu.LancerJeu(tailleListe, listeJoueurs);
         // while (true) {
 
     }
