@@ -84,10 +84,10 @@ public class Menu {
     }
 
 
-    public static int nb_joueurs() {
+    public static short nb_joueurs() {
         System.out.println("Combien ya t'ils de joueurs (entre 2 et 4) : ");
         Scanner scan = new Scanner(System.in);
-        int nbJoueurs = scan.nextInt();
+        short nbJoueurs = scan.nextShort();
         if (nbJoueurs == 2 || nbJoueurs == 3 || nbJoueurs == 4) {
             System.out.println(" ");
         } else {
@@ -99,7 +99,7 @@ public class Menu {
 
 
     public static List<String> Pseudo() {
-        int TotalJoueurs = Menu.nb_joueurs();
+        short TotalJoueurs = nb_joueurs();
         List<String> maListe = new ArrayList<>();
         for (int i = 0; i < TotalJoueurs; i++) {
             System.out.println("Entre un pseudo valide");

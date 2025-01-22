@@ -11,9 +11,10 @@ public class Main {
         // Execute la fonction debut dans le main
         Menu.Debut();
         List<String> listeJoueurs = Menu.Pseudo();
+        short tailleListe = (short) listeJoueurs.size();
         System.out.println(listeJoueurs);
 
-         // Jeu.jeu();
+         Jeu.LancerJeu(tailleListe);
         // while (true) {
 
     }
