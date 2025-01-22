@@ -1,5 +1,5 @@
 public class test {
     public static void main(String[] args) {
-        Jeu.LancerJeu();
+        Jeu.LancerJeu((short)2);
     }
 }
