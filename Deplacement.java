@@ -59,7 +59,7 @@ public class Deplacement {
             // Met à jour la grille : efface la position actuelle du joueur
             grille[coordonnees[0]][coordonnees[1]] = "🟩"; // Remet une case verte
             grille[nouvelleX][nouvelleY] = JoueurIcone; // Place le joueur
-            Generation.Affichage(grille);
+
             coordonnees[0] = nouvelleX;
             coordonnees[1] = nouvelleY;
             hasmoved = true;

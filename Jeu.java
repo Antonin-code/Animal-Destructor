@@ -9,6 +9,7 @@ public class Jeu {
     Cette fonction change les coordonnées d'apparition des joueurs selon le nombre de joueurs
      */
     public static void LancerJeu(short nbjoueurs, List listeJoueurs) {
+
         //Création du terrain
         String[][] Terrain = Generation.CreationTerrain();
 
@@ -30,10 +31,24 @@ public class Jeu {
             Terrain[PositionJoueurs[i][0]][PositionJoueurs[i][1]] = Joueurs[i];
         }
 
+        //Variables de l'easter egg
+        boolean easteregg = false;
+        short JoueurEE = -1;
+        short[] BombeCoords = {0,0};
+        boolean EEActivable = true;
+
         //Boucle de gameplay
         boolean AGagne = false;
         int NbTour = 0;
         while(!AGagne){
+            if (easteregg) {
+                if (NbTour%nbjoueurs == JoueurEE){
+                    EasterEgg.Explosion(Terrain, BombeCoords);
+                    BombeCoords = EasterEgg.PreventionBombe(Terrain);
+                }
+                EasterEgg.PreventionAttention(Terrain, BombeCoords);
+            }
+
             //Prochain Joueur
             String JoueurActuel = Joueurs[NbTour%nbjoueurs];
             Object PseudoActuel = listeJoueurs.get(NbTour % nbjoueurs);
@@ -62,10 +77,28 @@ public class Jeu {
 
             //Déplacement et attaque du joueur
             Deplacement.DeplacementJoueur(JoueurActuel,NbTour+1,PositionJoueurs[NbTour%nbjoueurs],Terrain,PseudoActuel);
+            if (easteregg){
+                EasterEgg.PreventionAttention(Terrain, BombeCoords);
+            }
             DestructionCase.Destruction(Terrain);
             NbTour++;
+
+            if (EEActivable) {
+                if (EasterEgg.EECondition(Terrain)) {
+                    easteregg = true;
+                    if (nbjoueurs >= NbTour % nbjoueurs + 1) {
+                        JoueurEE = (short) (NbTour % nbjoueurs);
+                    } else {
+                        JoueurEE = 0;
+                    }
+                    System.out.println(JoueurEE);
+                    EEActivable = false;
+                }
+            }
         }
     }
+
+
 
     /*
     Fonction appelée quand un joueur meurt pour le retirer de la liste des joueurs
@@ -83,6 +116,8 @@ public class Jeu {
         }
         return NouvelleListe;
     }
+
+
 
     /*
     Fonction appelée quand un joueur meurt pour retirer ses coordonnées de la liste des coordonnées

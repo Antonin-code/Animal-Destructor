@@ -8,6 +8,9 @@ public class DestructionCase {
     Les cases valides sont les cases herbe uniquement
      */
     public static void Destruction(String[][] grille) {
+        //Affichage du terrain
+        Generation.Affichage(grille);
+
         //Variables pour texte en couleurs
         final String ROUGE = "\u001B[31m";
         final String BLEU = "\u001B[36m";
