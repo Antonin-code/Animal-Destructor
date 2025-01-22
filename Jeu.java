@@ -12,6 +12,7 @@ public class Jeu {
         //Création du terrain
         String[][] Terrain = Generation.CreationTerrain();
 
+
         //Listes des icônes et des coordonnées de chaque joueur
         String[] Joueurs = {"🐰","🐷","🐔","🦊"};
         short[][] PositionJoueurs = {{5,5},{6,5},{6,7},{5,7}};
@@ -35,12 +36,17 @@ public class Jeu {
             //Prochain Joueur
             String JoueurActuel = Joueurs[i%nbjoueurs];
 
+            //Condition de défaite
             if (VictoireDefaite.Defaite(PositionJoueurs[i%nbjoueurs],Terrain)){
                 Joueurs = RetirerJoueur(Joueurs,(short)(i%nbjoueurs));
                 PositionJoueurs = RetirerCoords(PositionJoueurs,(short)(i%nbjoueurs));
                 System.out.println(Joueurs.length);
                 JoueurActuel = Joueurs[i%nbjoueurs];
                 nbjoueurs--;
+                if (nbjoueurs==1)
+                {
+                    System.out.println("gg "+Joueurs[0]+" tu es le plus fort");
+                }
             }
 
 
