@@ -1,11 +1,10 @@
 import java.util.Arrays;
 
 public class Jeu {
-    public static void LancerJeu() {
+    public static void LancerJeu(int nbjoueurs) {
         String[][] Terrain = Generation.CreationTerrain();
         Generation.Affichage(Terrain);
         String[] Joueurs = {"🐰","🐷","🐔","🦊"};
-        short nbjoueurs = 4;
         short[][] PositionJoueurs = {{5,5},{6,5},{5,7},{6,7}};
         Joueurs = Arrays.copyOfRange(Joueurs, 0, nbjoueurs);
         for (int i = 0; i < nbjoueurs; i++) {
