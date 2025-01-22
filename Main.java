@@ -7,21 +7,14 @@ import java.util.List;
  */
 public class Main {
 
-
-
     public static void main(String[] args) {
         // Execute la fonction debut dans le main
         Menu.Debut();
         List<String> listeJoueurs = Menu.Pseudo();
-        int tailleListe = listeJoueurs.size();
         System.out.println(listeJoueurs);
 
-       Jeu.LancerJeu(tailleListe);
+         // Jeu.jeu();
+        // while (true) {
 
-
-
-//        while (true) {
-//
-//        }
     }
 }

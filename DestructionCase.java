@@ -2,7 +2,11 @@ import java.util.Objects;
 import java.util.Scanner;
 
 public class DestructionCase {
-    //Fonction pour demander des coordonnées à l'utilisateur et détruire la case correspondante
+    /*Fonction pour demander des coordonnées à l'utilisateur et détruire la case correspondante
+    Cette fonction récupère une grille et demande au joueur des coordonnées en un nombre et une lettre
+    SI la coordonnée est bien écrite et SI la case choisie est valide, elle se transformera en feu
+    Les cases valides sont les cases herbe uniquement
+     */
     public static void Destruction(String[][] grille) {
         //Variables pour texte en couleurs
         final String ROUGE = "\u001B[31m";
@@ -12,9 +16,9 @@ public class DestructionCase {
         short ColonneCoord = 0;
         short LigneCoord = 0;
 
-        boolean isvalid = false;
+        boolean estvalide = false;
         //Boucle pour vérifier si les coordonnées données sont valides
-        while(!isvalid) {
+        while(!estvalide) {
 
             //Récupérer les coordonnées
             System.out.println("Veuillez rentrer les coordonnées (exemple: "+ BLEU +"1"+ROUGE+"A"+RESET+" ) :");
@@ -38,7 +42,7 @@ public class DestructionCase {
                 System.out.println("Coordonnées Invalides");
             }
             else {
-                isvalid = true;
+                estvalide = true;
             }
         }
         grille[LigneCoord][ColonneCoord] = "🔥";
