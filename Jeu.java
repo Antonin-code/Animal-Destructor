@@ -52,6 +52,7 @@ public class Jeu {
                 //S'il ne reste qu'un seul joueur, renvoyer la victoire
                 if (nbjoueurs==1)
                 {
+                    Generation.Affichage(Terrain);
                     System.out.println("gg "+Joueurs[0]+" tu es le plus fort");
                     AGagne = true;
                     continue;
