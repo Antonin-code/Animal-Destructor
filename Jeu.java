@@ -32,31 +32,36 @@ public class Jeu {
         }
 
         //Boucle de gameplay
-        for (int i = 0; i < 100; i++) {
+        boolean AGagne = false;
+        int NbTour = 0;
+        while(!AGagne){
             //Prochain Joueur
-            String JoueurActuel = Joueurs[i%nbjoueurs];
+            String JoueurActuel = Joueurs[NbTour%nbjoueurs];
 
             //Condition de défaite
-            if (VictoireDefaite.Defaite(PositionJoueurs[i%nbjoueurs],Terrain)){
-                Joueurs = RetirerJoueur(Joueurs,(short)(i%nbjoueurs));
-                PositionJoueurs = RetirerCoords(PositionJoueurs,(short)(i%nbjoueurs));
-                System.out.println(Joueurs.length);
-                JoueurActuel = Joueurs[i%nbjoueurs];
+            if (VictoireDefaite.Defaite(PositionJoueurs[NbTour%nbjoueurs],Terrain)){
+
+                //Si un joueur meurt, retirer son icône et ses coordonnées des listes correspondantes
+                Joueurs = RetirerJoueur(Joueurs,(short)(NbTour%nbjoueurs));
+                PositionJoueurs = RetirerCoords(PositionJoueurs,(short)(NbTour%nbjoueurs));
+
+                //Mise à jour du joueur actuel et réduction du nombre de joueurs total
+                JoueurActuel = Joueurs[NbTour%nbjoueurs];
                 nbjoueurs--;
+
+                //S'il ne reste qu'un seul joueur, renvoyer la victoire
                 if (nbjoueurs==1)
                 {
                     System.out.println("gg "+Joueurs[0]+" tu es le plus fort");
+                    AGagne = true;
+                    continue;
                 }
             }
 
-
             //Déplacement et attaque du joueur
-            Deplacement.DeplacementJoueur(JoueurActuel,i+1,PositionJoueurs[i%nbjoueurs],Terrain);
+            Deplacement.DeplacementJoueur(JoueurActuel,NbTour+1,PositionJoueurs[NbTour%nbjoueurs],Terrain);
             DestructionCase.Destruction(Terrain);
-
-
-
-
+            NbTour++;
         }
     }
 
@@ -78,9 +83,9 @@ public class Jeu {
     }
 
     /*
-    Fonction appelée quand un joueur meurt pour le retirer de la liste des joueurs
-    Cette fonction récupère l'index d'un joueur et la liste des joueurs et renvoie une nouvelle liste sans
-    ce joueur
+    Fonction appelée quand un joueur meurt pour retirer ses coordonnées de la liste des coordonnées
+    Cette fonction récupère l'index d'un joueur et la liste des coordonnées et renvoie une nouvelle liste sans
+    les coordonnées de ce joueur
      */
     public static short[][] RetirerCoords(short[][] ListeCoords, short indexCoords) {
         short[][] NouvelleListe = new short[ListeCoords.length -1][] ;
@@ -91,7 +96,6 @@ public class Jeu {
                 NouvelIndex++;
             }
         }
-        System.out.println(NouvelleListe[1][0]);
         return NouvelleListe;
     }
 }
