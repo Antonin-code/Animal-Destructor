@@ -30,18 +30,7 @@ public class VictoireDefaite {
         }
         return false;
     }
-
-        public static int score() {
-        int cpt = 0;
-        if (cpt==0){
-            cpt--;
-        }
-        else {
-            cpt++;
-            System.out.println("cpt");
-        }
-        return cpt;
     }
-}
+
 
 
