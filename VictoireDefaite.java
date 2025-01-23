@@ -14,25 +14,23 @@ public class VictoireDefaite {
         //regarder si il y a encore une case verte autour
         if (!Objects.equals(grille[coordx + 1][coordy], "🟩") && !Objects.equals(grille[coordx - 1][coordy], "🟩") && !Objects.equals(grille[coordx][coordy + 1], "🟩") && !Objects.equals(grille[coordx][coordy - 1], "🟩")) {
             //si oui on continue si non on le tue
-            if (Objects.equals(grille[coordx][coordy], "🐰")){
+            if (Objects.equals(grille[coordx][coordy], "🐰")) {
                 grille[coordx][coordy] = "🍖";
             }
-            if (Objects.equals(grille[coordx][coordy], "🐷")){
+            if (Objects.equals(grille[coordx][coordy], "🐷")) {
                 grille[coordx][coordy] = "\uD83E\uDD53";
             }
-            if (Objects.equals(grille[coordx][coordy], "🐔")){
+            if (Objects.equals(grille[coordx][coordy], "🐔")) {
                 grille[coordx][coordy] = "\uD83C\uDF57";
             }
-            if (Objects.equals(grille[coordx][coordy], "🦊")){
+            if (Objects.equals(grille[coordx][coordy], "🦊")) {
                 grille[coordx][coordy] = "\uD83E\uDD69";
             }
             return true;
         }
         return false;
     }
-
-
-}
+    }
 
 
 

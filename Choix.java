@@ -1,10 +1,11 @@
+import java.io.IOException;
 import java.util.*;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
 public class Choix {
-    public static void choix_Menu() {
+    public static void choix_Menu() throws IOException {
         Scanner scan = new Scanner(System.in);
         String choix = scan.nextLine();
         {
@@ -25,6 +26,9 @@ public class Choix {
             // Choix pour Quitter
             else if (choix.equals("L") || choix.equals("l")) {
                 Menu.Quitter();
+
+            } else if (choix.equals("S") || choix.equals("s")) {
+                Menu.Score();
             }
             // Rappele la fonction si le choix est different de /R/Q
             else {
@@ -36,7 +40,7 @@ public class Choix {
 
 
     // Fonction pour lire les regles
-    public static void regles_Menu() {
+    public static void regles_Menu() throws IOException {
         System.out.println(" ");
         System.out.println(" ");
         System.out.println("Bienvenue dans notre jeu de societe de stratégie sur plateau dans lequel vous pourrez piégés vos amis !!\n" +
@@ -90,4 +94,33 @@ public class Choix {
             Menu.Quitter();
         }
     }
-}
+        public static void choix_Score() throws IOException {
+            Scanner scan_score = new Scanner(System.in);
+            String choix_score = scan_score.nextLine();
+            {
+                // Rappele la fonction si le choix est different d'une lettre, exemple chiffre ou caractère spéciale
+                if (choix_score.matches(".*[\\d-_&'(@ç!;:/?,+].*")) {
+                    System.out.println("Bien essayé Clément");
+                    System.out.println(" ");
+                }
+
+                // retourner au menu principal
+                else if (choix_score.equals("B") || choix_score.equals("b")) {
+                    Menu.Debut();
+                }
+                // Choix pour inversoer l ordre en croissant
+                else if (choix_score.equals("C") || choix_score.equals("c")) {
+                    ordreFichier.trierFichierParScore("FichierScore.txt", false);
+                }
+                // Choix pour inversoer l ordre en decroissant
+                else if (choix_score.equals("D") || choix_score.equals("d")) {
+                    ordreFichier.trierFichierParScore("FichierScore.txt", true);
+                }
+                // Rappele la fonction si le choix est different de /R/Q
+                else {
+                    System.out.println("Veuillez bien relire les options possibles : ");
+                    System.out.println(" ");
+                }
+            }
+        }
+    }

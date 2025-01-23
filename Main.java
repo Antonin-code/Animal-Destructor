@@ -1,3 +1,4 @@
+import java.io.IOException;
 import java.util.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -7,13 +8,17 @@ import java.util.List;
  */
 public class Main {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
         // Execute la fonction debut dans le main
+        Sauvegarde.creerFichier("FichierScore");
         Menu.Debut();
         List<String> listeJoueurs = Menu.Pseudo();
+        List<Integer> listeScore = new ArrayList<>();
         short tailleListe = (short)listeJoueurs.size();
-        System.out.println(listeJoueurs);
+        Sauvegarde sauvegarde = new Sauvegarde();
         Jeu.LancerJeu(tailleListe, listeJoueurs);
+        Sauvegarde.ajoutPseudo(listeJoueurs, 0);
+
         // while (true) {
 
     }
