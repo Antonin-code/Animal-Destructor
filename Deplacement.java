@@ -1,9 +1,10 @@
+import java.io.IOException;
 import java.util.List;
 import java.util.Scanner;
 
 public class Deplacement {
 
-    public static void DeplacementJoueur(String JoueurIcone, int tour, short[] coordonnees,String[][] grille, Object PseudoActuel) {
+    public static void DeplacementJoueur(String JoueurIcone, int tour, short[] coordonnees,String[][] grille, Object PseudoActuel) throws IOException {
 
         Scanner scanner = new Scanner(System.in);
         String commande;

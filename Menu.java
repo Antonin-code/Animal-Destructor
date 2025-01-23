@@ -9,7 +9,7 @@ import java.io.IOException;
 public class Menu {
 
     // Fonction pour lancer le menu avec les options
-    public static void Debut() {
+    public static void Debut() throws IOException {
         System.out.println(" ");
         System.out.println(" ");
         System.out.println("Bonjour bienvenue dans Animal-Destructor !! ");
@@ -33,7 +33,7 @@ public class Menu {
     }
 
     //Fonction pour le score
-    public static void Score() {
+    public static void Score() throws IOException {
         System.out.println(" ");
         System.out.println(" ");
         System.out.println("--- B  Retourner au Menu ---");
@@ -41,9 +41,10 @@ public class Menu {
         System.out.println("--- D  Afficher les scores en ordre decroissant ---");
         System.out.println(" ");
         System.out.println(" ");
-        try (BufferedReader reader = new BufferedReader(new FileReader("C:\\Users\\croqu\\IdeaProjects\\Animal-Destructor\\nouveauFichier.txt"))) {
+        try (BufferedReader reader = new BufferedReader(new FileReader("FichierScore.txt"))) {
             String ligne;
-            while ((ligne = reader.readLine()) != null) {
+            for (int i = 0; i < 10; i++) {
+                ligne = reader.readLine();
                 System.out.println(ligne);
             }
         } catch (FileNotFoundException e) {
@@ -54,16 +55,27 @@ public class Menu {
         Choix.choix_Score();
     }
 
-    public static short nb_joueurs () {
-        System.out.println("Combien ya t'ils de joueurs (entre 2 et 4) : ");
+    public static short nb_joueurs() {
         Scanner scan = new Scanner(System.in);
-        short nbJoueurs = scan.nextShort();
-        if (nbJoueurs == 2 || nbJoueurs == 3 || nbJoueurs == 4){
-            System.out.println(" ");
-        } else {
-            System.out.println("Veuillez entrer un nombre valide !!");
-            nb_joueurs();
+        short nbJoueurs = 0;
+
+        while (true) { // Boucle pour forcer une entrée valide
+            try {
+                System.out.println("Combien y a-t-il de joueurs (entre 2 et 4) : ");
+                nbJoueurs = scan.nextShort(); // Lire la saisie
+
+                if (nbJoueurs == 2 || nbJoueurs == 3 || nbJoueurs == 4) {
+                    System.out.println("Nombre de joueurs accepté : " + nbJoueurs);
+                    break; // Sortir de la boucle si la saisie est correcte
+                } else {
+                    System.out.println("Veuillez entrer un nombre valide entre 2 et 4 !");
+                }
+            } catch (Exception e) {
+                System.out.println("Entrée invalide, veuillez saisir un nombre.");
+                scan.nextLine();
+            }
         }
+
         return nbJoueurs;
     }
 
@@ -87,7 +99,7 @@ public class Menu {
                 Pseudo();
             }
         }
-        Sauvegarde.ajoutPseudo(maListe);
+        Sauvegarde.ajoutPseudo(maListe, 0);
         System.out.println("La partie commence ! ");
         return maListe;
     }

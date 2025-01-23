@@ -13,10 +13,11 @@ public class Main {
         Sauvegarde.creerFichier("FichierScore");
         Menu.Debut();
         List<String> listeJoueurs = Menu.Pseudo();
+        List<Integer> listeScore = new ArrayList<>();
         short tailleListe = (short)listeJoueurs.size();
         Sauvegarde sauvegarde = new Sauvegarde();
         Jeu.LancerJeu(tailleListe, listeJoueurs);
-        Sauvegarde.ajoutPseudo(listeJoueurs);
+        Sauvegarde.ajoutPseudo(listeJoueurs, 0);
 
         // while (true) {
 

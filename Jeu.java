@@ -1,3 +1,5 @@
+import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Objects;
@@ -8,7 +10,7 @@ public class Jeu {
     while jusqu'à ce qu'un joueur gagne
     Cette fonction change les coordonnées d'apparition des joueurs selon le nombre de joueurs
      */
-    public static void LancerJeu(short nbjoueurs, List listeJoueurs) {
+    public static void LancerJeu(short nbjoueurs, List listeJoueurs) throws IOException {
         //Création du terrain
         String[][] Terrain = Generation.CreationTerrain();
 
@@ -42,9 +44,13 @@ public class Jeu {
             //Condition de défaite
             if (VictoireDefaite.Defaite(PositionJoueurs[NbTour%nbjoueurs],Terrain)){
 
+                List<String> listeJoueursLose = new ArrayList<>();
+                listeJoueursLose.add((String) PseudoActuel);
+                Sauvegarde.ajoutPseudo(listeJoueursLose, -2);
                 //Si un joueur meurt, retirer son icône et ses coordonnées des listes correspondantes
                 Joueurs = RetirerJoueur(Joueurs,(short)(NbTour%nbjoueurs));
                 PositionJoueurs = RetirerCoords(PositionJoueurs,(short)(NbTour%nbjoueurs));
+                listeJoueurs.remove(NbTour%nbjoueurs);
 
                 //Mise à jour du joueur actuel et réduction du nombre de joueurs total
                 JoueurActuel = Joueurs[NbTour%nbjoueurs];
@@ -54,7 +60,8 @@ public class Jeu {
                 if (nbjoueurs==1)
                 {
                     Generation.Affichage(Terrain);
-                    System.out.println("gg "+Joueurs[0]+" tu es le plus fort");
+                    System.out.println("gg "+PseudoActuel+Joueurs[0]+" tu es le plus fort");
+                    Sauvegarde.ajoutPseudo(listeJoueurs, 5);
                     AGagne = true;
                     continue;
                 }
