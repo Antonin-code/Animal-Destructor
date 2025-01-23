@@ -6,9 +6,10 @@ import java.util.Scanner;
 
 public class Choix {
     public static void choix_Menu() throws IOException {
-        Scanner scan = new Scanner(System.in);
-        String choix = scan.nextLine();
-        {
+        boolean BonChoix = false;
+        while (!BonChoix) {
+            Scanner scan = new Scanner(System.in);
+            String choix = scan.nextLine();
             // Rappele la fonction si le choix est different d'une lettre, exemple chiffre ou caractère spéciale
             if (choix.matches(".*[\\d-_&'(@ç!;:/?,+].*")) {
                 System.out.println("Bien essayé Clément");
@@ -17,17 +18,21 @@ public class Choix {
 
             // Choix pour jouer
             else if (choix.equals("P") || choix.equals("p")) {
+                BonChoix = true;
                 Menu.Jouer();
             }
             // Choix pour Regles
             else if (choix.equals("R") || choix.equals("r")) {
+                BonChoix = true;
                 regles_Menu();
             }
             // Choix pour Quitter
             else if (choix.equals("L") || choix.equals("l")) {
+                BonChoix = true;
                 Menu.Quitter();
 
             } else if (choix.equals("S") || choix.equals("s")) {
+                BonChoix = true;
                 Menu.Score();
             }
             // Rappele la fonction si le choix est different de /R/Q

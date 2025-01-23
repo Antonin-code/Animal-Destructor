@@ -34,11 +34,15 @@ public class DestructionCase {
             if (Objects.equals(Coordonnees, "L") || Objects.equals(Coordonnees, "l")) {
                 Menu.Quitter();
             }
+            if (Objects.equals(Coordonnees, "")) {
+                Coordonnees = " ";
+            }
 
 
             //Séparer le numéro de la colonne et la lettre de la ligne
             String Colonne = Coordonnees.substring(0, Coordonnees.length()-1);
             String Ligne = Coordonnees.substring(Coordonnees.length()-1);
+
 
             //Transformer les index en shorts
             try {

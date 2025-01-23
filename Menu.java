@@ -85,18 +85,20 @@ public class Menu {
         short TotalJoueurs = nb_joueurs();
         List<String> maListe = new ArrayList<>();
         for (int i = 0; i < TotalJoueurs; i++) {
-            System.out.println("Entre un pseudo valide");
-            Scanner scan = new Scanner(System.in);
-            String pseudo = scan.nextLine();
-            if (pseudo.length() >= 2 && pseudo.length() <= 10) {
-                System.out.println("ok");
-                maListe.add(pseudo);
-            } else if (pseudo.length() > 10) {
-                System.out.println("Le pseudo ne doit pas dépasser 10 caractères");
-                Pseudo();
-            } else if (pseudo.length() < 2) {
-                System.out.println("Le pseudo doit contenir au moins 2 caractères");
-                Pseudo();
+            boolean PseudoValide = false;
+            while (!PseudoValide) {
+                System.out.println("Entre un pseudo valide");
+                Scanner scan = new Scanner(System.in);
+                String pseudo = scan.nextLine();
+                if (pseudo.length() >= 2 && pseudo.length() <= 10) {
+                    System.out.println("ok");
+                    maListe.add(pseudo);
+                    PseudoValide = true;
+                } else if (pseudo.length() > 10) {
+                    System.out.println("Le pseudo ne doit pas dépasser 10 caractères");
+                } else {
+                    System.out.println("Le pseudo doit contenir au moins 2 caractères");
+                }
             }
         }
         Sauvegarde.ajoutPseudo(maListe, 0);

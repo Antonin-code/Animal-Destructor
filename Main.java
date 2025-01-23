@@ -15,7 +15,6 @@ public class Main {
         List<String> listeJoueurs = Menu.Pseudo();
         List<Integer> listeScore = new ArrayList<>();
         short tailleListe = (short)listeJoueurs.size();
-        Sauvegarde sauvegarde = new Sauvegarde();
         Jeu.LancerJeu(tailleListe, listeJoueurs);
         Sauvegarde.ajoutPseudo(listeJoueurs, 0);
 

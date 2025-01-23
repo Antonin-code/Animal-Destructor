@@ -74,8 +74,11 @@ public class Jeu {
                     AGagne = true;
                     continue;
                 }
-            }
 
+                System.out.println("MABITE MA GROSSE BITE");
+                continue;
+            }
+            System.out.println("touravance");
             //Déplacement et attaque du joueur
             Deplacement.DeplacementJoueur(JoueurActuel,NbTour+1,PositionJoueurs[NbTour%nbjoueurs],Terrain,PseudoActuel);
             if (easteregg){
