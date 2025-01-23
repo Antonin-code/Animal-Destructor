@@ -34,8 +34,8 @@ public class DestructionCase {
             if (Objects.equals(Coordonnees, "L") || Objects.equals(Coordonnees, "l")) {
                 Menu.Quitter();
             }
-            if (Objects.equals(Coordonnees, "")) {
-                Coordonnees = " ";
+            if (Objects.equals(Coordonnees, "") || Objects.equals(Coordonnees, null)) {
+                Coordonnees = "00";
             }
 
 

@@ -2,6 +2,7 @@ import java.io.IOException;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Objects;
+import java.util.Scanner;
 
 public class Jeu {
     /*Fonction pour lancer le jeu
@@ -74,11 +75,9 @@ public class Jeu {
                     AGagne = true;
                     continue;
                 }
-
-                System.out.println("MABITE MA GROSSE BITE");
                 continue;
             }
-            System.out.println("touravance");
+
             //Déplacement et attaque du joueur
             Deplacement.DeplacementJoueur(JoueurActuel,NbTour+1,PositionJoueurs[NbTour%nbjoueurs],Terrain,PseudoActuel);
             if (easteregg){
@@ -98,6 +97,27 @@ public class Jeu {
                     System.out.println(JoueurEE);
                     EEActivable = false;
                 }
+            }
+        }
+        //Demande au joueur s'il veut rejouer ou quitter
+        boolean replay = false;
+        System.out.println("--- R pour relancer une partie --- ");
+        System.out.println("--- L pour quitter le jeu ---");
+        while(!replay){
+            Scanner scan = new Scanner(System.in);
+            String choix = scan.nextLine();
+            try{
+                if(Objects.equals(choix, "r")){
+                    replay = true;
+                    Main.main(new String[0]);
+                }
+                else if (Objects.equals(choix, "l")){
+                    replay = true;
+                    Menu.Quitter();
+                }
+            }
+            catch (Exception e){
+                System.out.println("Veuillez rentrer un choix valide");
             }
         }
     }
