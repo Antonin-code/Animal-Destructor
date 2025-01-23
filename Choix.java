@@ -25,6 +25,8 @@ public class Choix {
             // Choix pour Quitter
             else if (choix.equals("L") || choix.equals("l")) {
                 Menu.Quitter();
+            } else if (choix.equals("S") || choix.equals("s")) {
+                Menu.Score();
             }
             // Rappele la fonction si le choix est different de /R/Q
             else {
@@ -90,4 +92,33 @@ public class Choix {
             Menu.Quitter();
         }
     }
-}
+        public static void choix_Score() {
+            Scanner scan_score = new Scanner(System.in);
+            String choix_score = scan_score.nextLine();
+            {
+                // Rappele la fonction si le choix est different d'une lettre, exemple chiffre ou caractère spéciale
+                if (choix_score.matches(".*[\\d-_&'(@ç!;:/?,+].*")) {
+                    System.out.println("Bien essayé Clément");
+                    System.out.println(" ");
+                }
+
+                // retourner au menu principal
+                else if (choix_score.equals("B") || choix_score.equals("b")) {
+                    Menu.Debut();
+                }
+                // Choix pour inversoer l ordre en croissant
+                else if (choix_score.equals("C") || choix_score.equals("c")) {
+                    Menu.Debut();
+                }
+                // Choix pour inversoer l ordre en decroissant
+                else if (choix_score.equals("D") || choix_score.equals("d")) {
+                    Menu.Debut();
+                }
+                // Rappele la fonction si le choix est different de /R/Q
+                else {
+                    System.out.println("Veuillez bien relire les options possibles : ");
+                    System.out.println(" ");
+                }
+            }
+        }
+    }

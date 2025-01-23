@@ -28,6 +28,10 @@ public class DestructionCase {
             if (Objects.equals(Coordonnees, "R") || Objects.equals(Coordonnees, "r")) {
                 Choix.regles_Jeu(grille);
             }
+            if (Objects.equals(Coordonnees, "L") || Objects.equals(Coordonnees, "l")) {
+                Menu.Quitter();
+            }
+
 
             //Séparer le numéro de la colonne et la lettre de la ligne
             String Colonne = Coordonnees.substring(0, Coordonnees.length()-1);
