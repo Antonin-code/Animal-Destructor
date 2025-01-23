@@ -1,3 +1,4 @@
+import java.io.IOException;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Objects;
@@ -8,7 +9,7 @@ public class Jeu {
     while jusqu'à ce qu'un joueur gagne
     Cette fonction change les coordonnées d'apparition des joueurs selon le nombre de joueurs
      */
-    public static void LancerJeu(short nbjoueurs, List listeJoueurs) {
+    public static void LancerJeu(short nbjoueurs, List listeJoueurs) throws IOException {
 
         //Création du terrain
         String[][] Terrain = Generation.CreationTerrain();
@@ -73,8 +74,11 @@ public class Jeu {
                     AGagne = true;
                     continue;
                 }
-            }
 
+                System.out.println("MABITE MA GROSSE BITE");
+                continue;
+            }
+            System.out.println("touravance");
             //Déplacement et attaque du joueur
             Deplacement.DeplacementJoueur(JoueurActuel,NbTour+1,PositionJoueurs[NbTour%nbjoueurs],Terrain,PseudoActuel);
             if (easteregg){
