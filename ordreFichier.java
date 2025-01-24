@@ -8,6 +8,15 @@ import java.util.ArrayList;
 import java.util.AbstractMap;
 
 public class ordreFichier {
+    /**
+     * Trie un fichier contenant les scores des joueurs en fonction de leur score.
+     * Chaque ligne du fichier doit être formatée comme suit :
+     * `<Pseudo> --> <Score>`.
+     *
+     * @param cheminFichier le chemin vers le fichier à trier.
+     * @param ordreCroissant un booléen indiquant si le tri doit être en ordre croissant (`true`) ou décroissant (`false`).
+     * @throws IOException si une erreur d'entrée/sortie se produit lors de la lecture ou de l'écriture du fichier.
+     */
     public static void trierFichierParScore(String cheminFichier, boolean ordreCroissant) throws IOException {
         // Lire toutes les lignes du fichier
         List<String> lignes = Files.readAllLines(Paths.get(cheminFichier));

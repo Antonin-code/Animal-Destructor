@@ -7,6 +7,36 @@ public class DestructionCase {
     SI la coordonnée est bien écrite et SI la case choisie est valide, elle se transformera en feu
     Les cases valides sont les cases herbe uniquement
      */
+    /**
+     * Demande à l'utilisateur des coordonnées pour détruire une case de la grille.
+     * Si les coordonnées sont valides (dans les limites de la grille et correspondant à une case "🟩"),
+     * la case sera remplacée par "🔥".
+     *
+     * @param grille Une matrice de chaînes de caractères représentant la grille de jeu.
+     *               Chaque élément de la matrice correspond à une case, avec des états possibles comme "🟩" (herbe) ou "🔥" (feu).
+     *
+     * <h3>Format des coordonnées :</h3>
+     * <ul>
+     *     <li>Les coordonnées doivent être entrées sous la forme d'un chiffre suivi d'une lettre (par exemple, "1A").</li>
+     *     <li>Le chiffre représente la colonne (1-11).</li>
+     *     <li>La lettre représente la ligne (A-J).</li>
+     * </ul>
+     *
+     * <h3>Exemple d'utilisation :</h3>
+     * <pre>
+     * {@code
+     * String[][] grille = Generation.CreationTerrain();
+     * DestructionCase.Destruction(grille);
+     * }
+     * </pre>
+     *
+     * <h3>Comportement :</h3>
+     * <ul>
+     *     <li>Affiche un message si les coordonnées sont invalides.</li>
+     *     <li>Continue de demander des coordonnées jusqu'à ce qu'une case valide soit sélectionnée.</li>
+     *     <li>Met à jour la grille en remplaçant "🟩" par "🔥".</li>
+     * </ul>
+     */
     public static void Destruction(String[][] grille) {
         //Affichage du terrain
         Generation.Affichage(grille);

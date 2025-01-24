@@ -3,6 +3,35 @@ import java.util.List;
 import java.util.Scanner;
 
 public class Deplacement {
+    /**
+     * Permet de gérer le déplacement d'un joueur dans le jeu en fonction des commandes saisies.
+     *
+     * @param JoueurIcone  L'icône représentant le joueur sur la grille (ex : 🐷, 🐔, 🐰, 🦊).
+     * @param tour         Le numéro du tour actuel, utilisé pour identifier quel joueur joue.
+     * @param coordonnees  Un tableau contenant les coordonnées actuelles du joueur (coordonnees[0] = ligne, coordonnees[1] = colonne).
+     * @param grille       La grille du jeu représentant l'état actuel du terrain.
+     *
+     * <p>Le joueur peut utiliser les commandes suivantes pour se déplacer :
+     * <ul>
+     *     <li>Z : Monter d'une case (haut)</li>
+     *     <li>S : Descendre d'une case (bas)</li>
+     *     <li>Q : Aller à gauche</li>
+     *     <li>D : Aller à droite</li>
+     * </ul>
+     * Si le joueur tente de marcher sur une case non valide (par exemple, une case contenant 🔥 ou un autre joueur),
+     * le déplacement est annulé et une alerte est affichée.</p>
+     *
+     * <p>Le joueur peut également entrer "EXIT" pour quitter la partie.</p>
+     *
+     * <h3>Exemple d'utilisation :</h3>
+     * <pre>
+     * {@code
+     * String[][] grille = Generation.CreationTerrain();
+     * short[] position = {5, 5};
+     * Deplacement.DeplacementJoueur("🐰", 1, position, grille);
+     * }
+     * </pre>
+     */
 
     public static void DeplacementJoueur(String JoueurIcone, int tour, short[] coordonnees,String[][] grille, Object PseudoActuel) throws IOException {
 

@@ -10,6 +10,18 @@ import java.io.*;
 import java.util.stream.Collectors;
 
 public class Sauvegarde {
+    /**
+     * Crée un fichier avec le nom spécifié.
+     *
+     * @param fileName le nom du fichier à créer.
+     * @return `true` si le fichier est créé avec succès, `false` s'il existe déjà ou en cas d'erreur.
+     *  * Ajoute une liste de pseudos dans le fichier de scores.
+     *      * Si un pseudo existe déjà, son score est mis à jour en utilisant la méthode `calculScore`.
+     *      *
+     *      * @param listeJoueurs une liste de pseudos à ajouter.
+     *      * @param pointsAjoutes les points à attribuer si le pseudo existe déjà.
+     *      * @throws IOException si une erreur d'entrée/sortie se produit.
+     */
     public static boolean creerFichier(String fileName) {
         try {
             // Créer une instance File pour le fichier donné

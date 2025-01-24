@@ -5,6 +5,28 @@ import java.util.List;
 import java.util.Scanner;
 
 public class Choix {
+    /**
+     * Gère les choix du joueur dans le menu principal.
+     * Les options disponibles sont :
+     * - P : Jouer.
+     * - R : Afficher les règles.
+     * - L : Quitter le jeu.
+     * - S : Afficher les scores.
+     *
+     * @throws IOException si une erreur d'entrée/sortie se produit.
+     * * Affiche les règles du jeu et permet de revenir au menu principal ou de quitter le jeu.
+     *      * Les options disponibles sont :
+     *      * - B : Retourner au menu principal.
+     *      * - L : Quitter le jeu.
+     *      *
+     *      * @throws IOException si une erreur d'entrée/sortie se produit.
+     *      * Affiche les règles pendant le jeu et permet de retourner au jeu ou de quitter le jeu.
+     *      * Les options disponibles sont :
+     *      * - P : Retourner au jeu.
+     *      * - L : Quitter le jeu.
+     *      *
+     *      * @param grille la grille de jeu, représentée sous forme de tableau 2D de chaînes.
+     *      */
     public static void choix_Menu() throws IOException {
         boolean BonChoix = false;
         while (!BonChoix) {

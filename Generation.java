@@ -1,4 +1,18 @@
 public class Generation {
+    /**
+     * Génère une grille représentant le terrain de jeu.
+     * <p>
+     * La grille est une matrice 2D de chaînes de caractères où :
+     * <ul>
+     *     <li>"🔥" représente des cases de feu (bords ou zones bloquées).</li>
+     *     <li>"🟩" représente des cases d'herbe (zones traversables).</li>
+     *     <li>Les dernières colonnes ajoutent des identifiants de ligne (A-J) pour plus de clarté.</li>
+     * </ul>
+     *
+     * @return Une matrice 2D de chaînes de caractères représentant le terrain de jeu.
+     *
+     * <h3>Exemple de retour :</h3>
+     * */
     //Fonction pour créer le terrain
     public static String[][] CreationTerrain(){
         return new String[][] {

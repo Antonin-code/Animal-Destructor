@@ -7,6 +7,13 @@ public class Jeu {
     while jusqu'à ce qu'un joueur gagne
     Cette fonction change les coordonnées d'apparition des joueurs selon le nombre de joueurs
      */
+    /**
+     * Lancer le jeu.
+     * Cette fonction initialise le terrain, les joueurs, et leurs positions, puis lance une boucle de jeu
+     * qui se termine lorsqu'un joueur gagne.
+     *
+     * @param nbjoueurs le nombre total de joueurs participant au jeu (entre 2 et 4).
+     */
     public static void LancerJeu(short nbjoueurs, List listeJoueurs) throws IOException {
 
         //Création du terrain

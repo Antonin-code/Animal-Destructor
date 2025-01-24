@@ -7,6 +7,21 @@ public class EasterEgg {
     Elle renvoie la localisation de la bombe.
     La bombe ne peut pas apparaitre sur un joueur.
      */
+    /**
+     * Choisit un emplacement aléatoire sur la grille pour placer une bombe (représentée par "💣").
+     * L'emplacement est sélectionné uniquement sur une case "🟩" et ne peut pas se trouver sur un joueur.
+     *
+     * @param grille la grille de jeu représentée comme un tableau 2D de chaînes.
+     * @return un tableau de deux éléments contenant les coordonnées de la bombe {ligne, colonne}.
+     *  * Ajoute des symboles "⚠️" autour de l'emplacement d'une bombe pour indiquer les zones à risque.
+     *      *
+     *      * @param grille la grille de jeu représentée comme un tableau 2D de chaînes.
+     *      * @param BombCoords les coordonnées de la bombe {ligne, colonne}.
+     *       * Déclenche une explosion autour de l'emplacement d'une bombe en remplaçant les cases concernées par "🔥".
+     *      *
+     *      * @param grille la grille de jeu représentée comme un tableau 2D de chaînes.
+     *      * @param BombCoords les coordonnées de la bombe {ligne, colonne}.
+     */
     public static short[] PreventionBombe(String[][] grille) {
         boolean BombeOk = false;
         short BombLigne;

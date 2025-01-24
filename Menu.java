@@ -7,6 +7,11 @@ import java.io.FileReader;
 import java.io.IOException;
 
 public class Menu {
+    /**
+     * Démarre le menu principal du jeu.
+     * Affiche les options disponibles (lancer une partie, lire les règles ou quitter le jeu)
+     * et permet à l'utilisateur de faire un choix. Relance la fonction si l'entrée est invalide.
+     */
 
     // Fonction pour lancer le menu avec les options
     public static void Debut() throws IOException {
