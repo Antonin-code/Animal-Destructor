@@ -1,8 +1,5 @@
 import java.io.IOException;
-import java.util.Arrays;
-import java.util.List;
-import java.util.Objects;
-import java.util.Scanner;
+import java.util.*;
 
 public class Jeu {
     /*Fonction pour lancer le jeu
@@ -59,9 +56,14 @@ public class Jeu {
             //Condition de défaite
             if (VictoireDefaite.Defaite(PositionJoueurs[NbTour%nbjoueurs],Terrain)){
 
+
+                List<String> listeJoueursLose = new ArrayList<>();
+                listeJoueursLose.add((String) PseudoActuel);
+                Sauvegarde.ajoutPseudo(listeJoueursLose, -2);
                 //Si un joueur meurt, retirer son icône et ses coordonnées des listes correspondantes
                 Joueurs = RetirerJoueur(Joueurs,(short)(NbTour%nbjoueurs));
                 PositionJoueurs = RetirerCoords(PositionJoueurs,(short)(NbTour%nbjoueurs));
+                listeJoueurs.remove(NbTour%nbjoueurs);
 
                 //Mise à jour du joueur actuel et réduction du nombre de joueurs total
                 JoueurActuel = Joueurs[NbTour%nbjoueurs];
@@ -70,6 +72,7 @@ public class Jeu {
                 //S'il ne reste qu'un seul joueur, renvoyer la victoire
                 if (nbjoueurs==1)
                 {
+                    Sauvegarde.ajoutPseudo(listeJoueurs, 5);
                     Generation.Affichage(Terrain);
                     System.out.println("gg "+Joueurs[0]+" tu es le plus fort");
                     AGagne = true;

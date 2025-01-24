@@ -1,2 +1,10 @@
 lili --> 10
+Oscour --> 5
+Cour --> 5
+Aled --> -2
+Al --> -2
+Ed --> -2
+Os --> -2
 lolo --> -4
+oceane --> -6
+meghanou --> -8

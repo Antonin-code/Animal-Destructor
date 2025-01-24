@@ -9,10 +9,8 @@ public class Deplacement {
         Scanner scanner = new Scanner(System.in);
         String commande;
 
-        System.out.println("Bienvenue dans le jeu multi-joueurs !");
         System.out.println("Vous pouvez a tout moment regarder les regles avec r ou quitter le jeu avec l");
         System.out.println("Utilisez Z (haut), S (bas), Q (gauche), D (droite) pour vous déplacer.");
-        System.out.println("Joueurs : 🐷, 🐔, 🐰, 🦊.");
 
         boolean hasmoved = false;
         while (!hasmoved) {
